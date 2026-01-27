@@ -8,6 +8,34 @@ import { toast } from 'react-hot-toast';
 import confetti from 'canvas-confetti';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Helper function to render text with clickable links
+const renderContentWithLinks = (text) => {
+    if (!text) return null;
+
+    // Regex to find URLs (starting with http:// or https://)
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+    const parts = text.split(urlRegex);
+
+    return parts.map((part, index) => {
+        if (part.match(urlRegex)) {
+            return (
+                <a
+                    key={index}
+                    href={part}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0061FE] underline break-all hover:text-blue-800"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {part}
+                </a>
+            );
+        }
+        return part;
+    });
+};
+
 const UserFormView = () => {
     const session = useSession();
     const { id } = useParams();
@@ -236,8 +264,8 @@ const UserFormView = () => {
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-[#1E1E1E]">
                         {program.title}
                     </h1>
-                    <p className="text-lg font-medium text-gray-600 leading-relaxed whitespace-pre-wrap">
-                        {program.description}
+                    <p className="text-lg font-medium text-gray-600 leading-relaxed whitespace-pre-wrap break-words">
+                        {renderContentWithLinks(program.description)}
                     </p>
                 </div>
 
