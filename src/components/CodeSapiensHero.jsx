@@ -717,7 +717,7 @@ const CodeSapiensHero = () => {
                             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 group transition-transform duration-500">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-[#0061FE]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                                 <img
-                                    src="https://res.cloudinary.com/dqudvximt/image/upload/v1768407508/file_0000000051bc7209aea65ac4cf85e2a3_dz4lph.png"
+                                    src="https://res.cloudinary.com/dqudvximt/image/upload/v1771005975/Gemini_Generated_Image_il0qzjil0qzjil0q_1_cfh7ix.png"
                                     alt="CodeSapiens Dashboard"
                                     className="w-full h-auto object-cover"
                                 />
